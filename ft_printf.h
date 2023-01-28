@@ -32,6 +32,6 @@ typedef struct s_form
 	char	format;
 }						t_form;
 
-# define SPEC "cspdiuxX%"
+# define SPEC "csdiupxX%"
 
 #endif 
