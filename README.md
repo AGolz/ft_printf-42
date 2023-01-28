@@ -1,3 +1,3 @@
-# ft_printf-42 :memo:
+# ft_printf-42 :memo: (in progress)
 
 The goal of this project is quite simple - to recode printf(). Basically, this project is to study the use of a variable number of arguments. How cool is that?? It's actually pretty cool :)
