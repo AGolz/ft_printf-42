@@ -6,7 +6,7 @@
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 18:47:25 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/02 21:14:20 by emaksimo         ###   ########.fr       */
+/*   Updated: 2023/02/02 22:19:31 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_print_diu(t_form f, va_list ap)
 	if (n < 0 && f.spec != 'u')
 		n *= -1;
 	if (n < 0 && f.spec == 'u')
-		nbr = ft_uitoa((unsigned)n);
+		nbr = ft_itoa((unsigned)n);
 	else
 		nbr = ft_itoa(n);
 	len = ft_strlen(nbr);

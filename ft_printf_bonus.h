@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 21:31:54 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/02 23:57:51 by emaksimo         ###   ########.fr       */
+/*   Created: 2023/02/02 22:53:17 by emaksimo          #+#    #+#             */
+/*   Updated: 2023/02/02 22:55:54 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define FT_PRINTF_H
 
-#include "Libft/libft.h"
+#include "../Libft/libft.h"
 #include <stdarg.h>
 
 typedef struct s_form
@@ -48,8 +48,4 @@ int	ft_print_p(t_form f, va_list ap);
 int ft_print_format(t_form f, va_list ap);
 t_form	ft_new_format(void);
 
-void check_leaks(int argc, char *uname);
-int main(int argc, char **argv);
-
 #endif
-
