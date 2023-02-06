@@ -6,12 +6,12 @@
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:31:54 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/02 23:57:51 by emaksimo         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:14:53 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
 
+#ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
 #include "Libft/libft.h"

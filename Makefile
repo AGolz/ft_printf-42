@@ -6,11 +6,11 @@
 #    By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 21:47:44 by emaksimo          #+#    #+#              #
-#    Updated: 2023/02/03 01:07:20 by emaksimo         ###   ########.fr        #
+#    Updated: 2023/02/06 18:16:52 by emaksimo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 HEADER = ft_printf.h
 
 LIBFTD = Libft/
@@ -43,7 +43,8 @@ all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJECTS) $(HEADER)
 	@echo "$(BLUE)...\n$(RESET)\c"
-	ar rc $(NAME) $?
+	@cp $(LIBFT) $(NAME)
+	ar rc $(NAME) $(OBJECTS) $?
 	@ranlib $(NAME)
 	@echo "\n$(NAME): $(BLUE) object files are created $(RESET)"
 	@echo "$(NAME): $(BLUE) $(NAME) created $(RESET) $(DEFAULT)"
