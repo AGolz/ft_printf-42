@@ -6,12 +6,13 @@
 #    By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 21:47:44 by emaksimo          #+#    #+#              #
-#    Updated: 2023/02/06 18:16:52 by emaksimo         ###   ########.fr        #
+#    Updated: 2023/02/09 19:46:24 by emaksimo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 HEADER = ft_printf.h
+HEADER_B = ft_printf_bonus.h
 
 LIBFTD = Libft/
 LIBFT := ${addprefix ${LIBFTD},libft.a}
@@ -23,7 +24,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SOURCES = ft_pars.c ft_print_chr.c ft_print_diu.c ft_print_x.c ft_printf.c 
 
-SOURCES_B = 
+SOURCES_B = ft_pars_bonus.c ft_print_chr_bonus.c ft_print_diu_bonus.c ft_print_x_bonus.c ft_printf_bonus.c 
 
 OBJECTS = $(SOURCES:.c=.o)
 OBJECTS_B = $(SOURCES_B:.c=.o)
@@ -44,7 +45,7 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(OBJECTS) $(HEADER)
 	@echo "$(BLUE)...\n$(RESET)\c"
 	@cp $(LIBFT) $(NAME)
-	ar rc $(NAME) $(OBJECTS) $?
+	@ar rc $(NAME) $(OBJECTS) $?
 	@ranlib $(NAME)
 	@echo "\n$(NAME): $(BLUE) object files are created $(RESET)"
 	@echo "$(NAME): $(BLUE) $(NAME) created $(RESET) $(DEFAULT)"
@@ -53,8 +54,9 @@ $(NAME): $(LIBFT) $(OBJECTS) $(HEADER)
 $(LIBFT):
 	$(LIBFTMK)
 
-bonus: $(OBJECTS_B) $(HEADER)
-	ar rc $(NAME) $?
+bonus: $(LIBFT) $(OBJECTS_B) $(HEADER_B)
+	@cp $(LIBFT) $(NAME)
+	@ar rc $(NAME) $(OBJECTS_B) $?
 	@echo "$(BLUE)\n  (ﾉ>ω<)ﾉ \n$(RESET)\c"
 	@ranlib $(NAME)
 	@echo "\n $(BLUE)｡･:*:･ﾟ’★,｡･:*:･ﾟ’☆ bonus object files are created ｡･:*:･ﾟ’★,｡･:*:･ﾟ’☆ $(RESET)" 

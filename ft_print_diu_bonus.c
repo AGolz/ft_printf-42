@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_diu.c                                     :+:      :+:    :+:   */
+/*   ft_print_diu_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 18:47:25 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/09 18:52:00 by emaksimo         ###   ########.fr       */
+/*   Created: 2023/02/09 19:15:05 by emaksimo          #+#    #+#             */
+/*   Updated: 2023/02/09 20:49:19 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 static char	plus(t_form f)
 {
@@ -54,7 +54,7 @@ int	ft_print_diu(t_form f, va_list ap)
 
 	c = 0;
 	n = va_arg(ap, int);
-	neg = (n < 0 && n != INT_MIN && f.specifier != 'u');
+	neg = (n < 0 && n != INT_MIN  && f.specifier != 'u');
 	if (neg)
 		f.plus = 0;
 	if (n < 0 && f.specifier != 'u')

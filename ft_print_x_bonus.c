@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_x.c                                       :+:      :+:    :+:   */
+/*   ft_print_x_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 18:47:02 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/09 21:58:46 by emaksimo         ###   ########.fr       */
+/*   Created: 2023/02/09 19:16:02 by emaksimo          #+#    #+#             */
+/*   Updated: 2023/02/09 21:59:21 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 static char	*ft_sharp(t_form f)
 {
@@ -45,7 +45,7 @@ int	ft_print_x(t_form f, va_list ap)
 {
 	int				count;
 	unsigned int	n;
-	int				len;
+	int	len;
 
 	count = 0;
 	n = va_arg(ap, unsigned int);
@@ -72,9 +72,9 @@ int	ft_print_x(t_form f, va_list ap)
 
 int	ft_print_p(t_form f, va_list ap)
 {
-	int		count;
+	int	count;
 	size_t	n;
-	int		len;
+	int	len;
 
 	count = 0;
 	n = va_arg(ap, size_t);
