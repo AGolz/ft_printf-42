@@ -6,33 +6,41 @@
 #    By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 21:47:44 by emaksimo          #+#    #+#              #
-#    Updated: 2023/02/09 19:46:24 by emaksimo         ###   ########.fr        #
+#    Updated: 2023/02/15 19:05:35 by emaksimo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-HEADER = ft_printf.h
-HEADER_B = ft_printf_bonus.h
+INCD = include/
+HEADER = include/ft_printf.h
+HEADER_B = include/ft_printf_bonus.h
 
-LIBFTD = Libft/
+LIBFTD = libft/
 LIBFT := ${addprefix ${LIBFTD},libft.a}
 LIBFTMK = make -C $(LIBFTD)
 
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
+
+SRSD = srcs/
+OBJD = objects/
 
 SOURCES = ft_pars.c ft_print_chr.c ft_print_diu.c ft_print_x.c ft_printf.c 
 
+SRSD_B = srcs_bonus/
+OBJD_B = objects_bonus/
+
 SOURCES_B = ft_pars_bonus.c ft_print_chr_bonus.c ft_print_diu_bonus.c ft_print_x_bonus.c ft_printf_bonus.c 
 
-OBJECTS = $(SOURCES:.c=.o)
-OBJECTS_B = $(SOURCES_B:.c=.o)
+OBJECTS := ${addprefix ${OBJD},${SOURCES:.c=.o}}
+SOURCES := ${addprefix ${SRCD},${SOURCES:.c=.o}}
+
+OBJECTS_B := ${addprefix ${OBJD_B},${SOURCES_B:.c=.o}}
+SOURCES_B := ${addprefix ${SRCD_B},${SOURCES_B:.c=.o}}
 
 BLUE = \033[1;36m 
 PINK = \033[1;35m
 RESET = \033[0m
-DEFAULT = \033[0;39m
 
 WHALE	=	"\n$(BLUE)       ::: \n     ___:____     |^\/^| \n   ,'        '.    \  / \n   |  O        \___/  | \n ~^~^~^~^~^~^~^~^~^~^~^~^~\n \n Compilation Successful!\n\n   by emaksimo for 42 \n	${NC}\n"
 NUKE	=	"\n$(PINK)    _.-^^---....,,--       \n _--                  --_  \n<                        >)\n|                         | \n \._                   _./  \n    '''--. . , ; .--'''       \n          | |   |             \n       .-=||  | |=-.   \n       '-=£€%&%€£=-'   \n          | ;  :|     \n _____.,-£%&€@%£&£~,._____\n ${NC}\n"
@@ -48,8 +56,12 @@ $(NAME): $(LIBFT) $(OBJECTS) $(HEADER)
 	@ar rc $(NAME) $(OBJECTS) $?
 	@ranlib $(NAME)
 	@echo "\n$(NAME): $(BLUE) object files are created $(RESET)"
-	@echo "$(NAME): $(BLUE) $(NAME) created $(RESET) $(DEFAULT)"
+	@echo "$(NAME): $(BLUE) $(NAME) created $(RESET)"
 	@echo $(WHALE)
+
+$(OBJD)%.o: $(SRSD)%.c
+	mkdir -p $(OBJD)
+	$(CC) -c -o $@ $(CFLAGS) -I$(INCD) -I$(LIBFTD) $?
 	
 $(LIBFT):
 	$(LIBFTMK)
@@ -62,15 +74,22 @@ bonus: $(LIBFT) $(OBJECTS_B) $(HEADER_B)
 	@echo "\n $(BLUE)｡･:*:･ﾟ’★,｡･:*:･ﾟ’☆ bonus object files are created ｡･:*:･ﾟ’★,｡･:*:･ﾟ’☆ $(RESET)" 
 	@echo "\n $(BLUE)                   it's a special Street magic (─‿‿─) $(RESET)" 
 	
+$(OBJD_B)%.o: $(SRSD_B)%.c
+	mkdir -p $(OBJD_B)
+	$(CC) -c -o $@ $(CFLAGS) -I$(INCD) -I$(LIBFTD) $?
 	
 clean:  
-	@rm -rf $(OBJECTS) $(OBJECTS_B)
+	@rm -rf $(OBJD) $(OBJD_B)
+	@$(LIBFTMK) clean 
+	@echo "$(PINK) clean libft  $(RESET)"
 	@echo "$(PINK) ...3 2 1 $(RESET)"
 	@echo $(NUKE)
 	@echo "$(NAME): $(PINK) object files are deleted $(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)
+	@$(LIBFTMK) fclean 
+	@echo "$(PINK) fclean libft $(RESET)"
 	@echo "$(NAME): $(PINK) $(NAME) deleted $(RESET)"
 
 re:

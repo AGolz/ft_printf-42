@@ -6,11 +6,11 @@
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 18:47:25 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/09 18:52:00 by emaksimo         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:02:55 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
 static char	plus(t_form f)
 {
@@ -33,9 +33,9 @@ static int	ft_print_nbr(t_form f, char *nbr, int len, int neg)
 		c += ft_putnchar_fd('0', 1, f.wdth - f.precision - neg - f.plus);
 	else if (!f.minus && f.wdth > f.precision)
 		c += ft_putnchar_fd(' ', 1, f.wdth - f.precision - neg - f.plus);
-	if (neg || f.plus)
+	if ((neg || f.plus) && ft_strncmp(nbr, "-2147483648", 12))
 		c += ft_putnchar_fd(plus(f), 1, !f.zero || (f.dot && !f.neg_prec));
-	else if (f.space)
+	else if (f.space && ft_strncmp(nbr, "-2147483648", 12))
 		c += ft_putnchar_fd(' ', 1, !f.zero || f.dot);
 	c += ft_putnchar_fd('0', 1, f.precision - len);
 	c += write(1, nbr, len);

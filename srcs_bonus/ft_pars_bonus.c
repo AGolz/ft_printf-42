@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pars.c                                          :+:      :+:    :+:   */
+/*   ft_pars_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 14:57:41 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/09 21:55:29 by emaksimo         ###   ########.fr       */
+/*   Created: 2023/02/09 19:12:48 by emaksimo          #+#    #+#             */
+/*   Updated: 2023/02/15 20:07:31 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf_bonus.h"
 
-static t_form ft_pars_bonus (char *str, t_form f)
+static t_form	ft_pars_bs(char *str, t_form f)
 {
 	while (*str != '.' && !ft_strchr (SPEC, *str))
 	{
@@ -21,16 +21,16 @@ static t_form ft_pars_bonus (char *str, t_form f)
 		if (*str == ' ')
 			f.space = 1;
 		if (*str == '#')
-			f.sharp = 1;
+			f.shrp = 1;
 		str++;
 	}
 	return (f);
 }
 
-static t_form	ft_pars_wdth(char* str, va_list	ap, t_form f)
+static t_form	ft_pars_wdth(char *str, va_list	ap, t_form f)
 {
 	int	spcf;
-	
+
 	spcf = 0;
 	while (*str != '.' && !ft_strchr(SPEC, *str))
 	{
@@ -51,10 +51,10 @@ static t_form	ft_pars_wdth(char* str, va_list	ap, t_form f)
 	return (f);
 }
 
-static t_form ft_pars_precis(char *str, va_list ap, t_form f)
+static t_form	ft_pars_precis(char *str, va_list ap, t_form f)
 {
-	int spcf;
-	
+	int	spcf;
+
 	spcf = 0;
 	while (!ft_strchr(SPEC, *str))
 	{
@@ -73,25 +73,25 @@ static t_form ft_pars_precis(char *str, va_list ap, t_form f)
 
 int	ft_pars(char *str, va_list ap)
 {
-	t_form new_format;
-	
-	new_format = ft_pars_wdth(str, ap, ft_new_format());
-	new_format = ft_pars_bonus(str, new_format);
+	t_form	nw_frt;
+
+	nw_frt = ft_pars_wdth(str, ap, ft_new_format());
+	nw_frt = ft_pars_bs(str, nw_frt);
 	while (!ft_strchr(SPEC, *str) && *str != '.')
 		str++;
-	if (*str == '.' && !new_format.specifier)
+	if (*str == '.' && !nw_frt.specifier)
 	{
-		new_format.dot = 1;
-		new_format = ft_pars_precis(str++, ap, new_format);
+		nw_frt.dot = 1;
+		nw_frt = ft_pars_precis(str++, ap, nw_frt);
 		while (!ft_strchr(SPEC, *str))
 			str++;
 	}
-	if (new_format.wdth < 0)
+	if (nw_frt.wdth < 0)
 	{
-		new_format.minus = 1;
-		new_format.wdth *= -1;
+		nw_frt.minus = 1;
+		nw_frt.wdth *= -1;
 	}
-	new_format.specifier = *str;
-	new_format.neg_prec = new_format.precision < 0;
-	return (ft_print_format(new_format, ap));
+	nw_frt.specifier = *str;
+	nw_frt.neg_prec = nw_frt.precision < 0;
+	return (ft_print_format(nw_frt, ap));
 }

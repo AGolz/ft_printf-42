@@ -6,19 +6,19 @@
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:31:58 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/09 21:57:57 by emaksimo         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:05:22 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	int cnt;
-	va_list ap;
-	char *first;
-	
-	cnt = 0; 
+	int		cnt;
+	va_list	ap;
+	char	*first;
+
+	cnt = 0;
 	va_start(ap, str);
 	while (*str)
 	{
@@ -41,9 +41,9 @@ int ft_printf(const char *str, ...)
 	return (cnt);
 }
 
-int ft_print_format(t_form f, va_list ap)
+int	ft_print_format(t_form f, va_list ap)
 {
-	int n;
+	int	n;
 
 	n = 0;
 	if (f.specifier == 'c' || f.specifier == '%')
@@ -67,11 +67,11 @@ t_form	ft_new_format(void)
 	newformat.plus = 0;
 	newformat.wdth = 0;
 	newformat.precision = 0;
-	newformat.specifier= 0;
+	newformat.specifier = 0;
 	newformat.zero = 0;
 	newformat.dot = 0;
 	newformat.space = 0;
-	newformat.sharp = 0;
+	newformat.shrp = 0;
 	newformat.neg_prec = 0;
 	return (newformat);
 }
