@@ -172,3 +172,5 @@ Run `make test` to run tests for the main part or run `make test_b` for the bonu
 **[Project instructions](https://github.com/AGolz/ft_printf-42/files/10759004/en.subject.pdf)**
 
 Need help: emaksimo@student.42yerevan.am
+
+Special thanks: [tripouille](https://github.com/Tripouille) for the [printfTester](https://github.com/Tripouille/printfTester) (:
