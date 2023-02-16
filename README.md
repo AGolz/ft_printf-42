@@ -40,7 +40,7 @@ Rules are defined by a set of three types of directives:
 Each format specifier starts with the `%` character and has the following format:
 
 ```
-%[flags][width][precision][modifiers][type of conversion]
+%[flags][width][precision][type of conversion]
 ```
 
 ### Type of conversion:
