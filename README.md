@@ -5,7 +5,7 @@
 
 **Actual Status :** Finished
 
-The goal of this project is quite simple - to recode printf() and understand how functions with a variable number of arguments work.
+The goal of this project is quite simple — to recode printf() and understand how functions with a variable number of arguments work.
 
 ## The main part:
 
@@ -137,54 +137,38 @@ The format specifier can have 0 or more `[flags]`
   </tbody>
 </table>
 
-Run `make` to compile the **libft** library .
+The `[flags]` specifier can be omitted.
+
+#### Width 
+The `[width]` specifier specifies the minimum size of the output number in characters. If the number of characters in the output number is less than the specified minimum width, then the missing number of characters is filled with zeros or spaces on the left or right, depending on the specified flags. The width is specified either as an integer or by the character * followed by the name of an int variable containing the width value before the argument to which it refers. If the argument has a negative value, then it is equivalent to the corresponding positive value with the "-" flag.
+
+The `[width]` specifier can be omitted.
+
+#### Precision
+The actions of the specifier `[precision]` depends on the type of the output number:
+
+- For types d, i, u, x, X defines the minimum number of output digits. If the number of output digits in the number is less than specified in the `[precision]` specifier, then the output number will be padded with zeros on the left. For example, if you specify the precision of 4 when displaying the number 126, the number 0126 will be displayed on the screen
+
+The precision is specified as a dot character followed by a decimal number or a "*" character, followed by the name of an int variable containing the precision value before the argument to which it refers.
+
+The `[precision]` specifier can be omitted.
+
+
+## How to use
+Run `make` to compile the **libftprintf** library.
 
 ```
 $>make
-libft.a:   object files are created
-libft.a:   libft.a created
+libftprintf.a:   object files are created 
+libftprintf.a:   libftprintf.a created
+libftprintf.a
 ```
+Run `make bonus` to compile the **libftprintf** library with bonus flags for `ft_printf`.
 
-The makefile also contains the rules `clean` - delete object files, `fclean` - delete everything, including libft.a, and `re` - delete everything, including lift.a and compile again.
+The makefile also contains the rules `clean` - delete object files, `fclean` - delete everything, including libftprintf.a, and `re` - delete everything, including libftprintf.a and compile again.
 
-## Bonus part:
+Run `make test` to run tests for the main part or run `make test_b` for the bonus part.
 
-This is a set of functions for manipulating lists. To represent the list node, the following structure was used, declared in the libfdt.h file:
-
-```
-typedef struct	s_list
-{
-	void		*content;
-	struct s_list	*next;
-}			t_list;
-```
-
-The members of the t_list structure are:
-
-• content: data contained in the node.
-  void * allows you to store any data.
-
-• next: the address of the next node, or NULL if the next node is the last.
-
-Their detailed description can be found [here](https://github.com/AGolz/Libft_42Yerevan/blob/main/en.subject.pdf), page 11.
-
-Run `make bonus` to compile the **bonus functions** from libft.
-
-```
-$>make bonus
-bonus object files are created
-```
-
-## Unit-test results:
-
-[libft-unit-test](https://github.com/alelievr/libft-unit-test)
-
-<img width="714" alt="Screen Shot 2023-01-18 at 6 50 32 AM" src="https://user-images.githubusercontent.com/51645091/214315091-133c3af4-7acf-4939-8452-7c928f2ff4d2.png">
-
-<img width="675" alt="Screen Shot 2023-01-18 at 6 51 29 AM" src="https://user-images.githubusercontent.com/51645091/214315229-0e05a075-e212-4c16-994a-8e74c5fb4bfc.png">
-
-<img width="695" alt="Screen Shot 2023-01-18 at 6 52 01 AM" src="https://user-images.githubusercontent.com/51645091/214315268-c288b876-1589-4d16-b33e-1c723b234dcb.png">
-
-**[Project instructions](/en.subject.pdf)**
+**[Project instructions]()**
 
 Need help: emaksimo@student.42yerevan.am
