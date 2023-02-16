@@ -16,9 +16,9 @@ The prototype of ft_printf() is:
 int ft_printf(const char *, ...);
 ```
 Here are the project requirements for this part:
-• Don’t implement the buffer management of the original `printf()`.
-• The function should handle the following conversions: `cspdiuxX%`
-• The function will be compared with the original `printf()`.
+- Don’t implement the buffer management of the original `printf()`
+- The function should handle the following conversions: `cspdiuxX%`
+- The function will be compared with the original `printf()`
 
 ### Arguments:
 format – a pointer to a string with a description of the format.
