@@ -169,6 +169,6 @@ The makefile also contains the rules `clean` - delete object files, `fclean` - d
 
 Run `make test` to run tests for the main part or run `make test_b` for the bonus part.
 
-**[Project instructions]()**
+**[Project instructions](https://github.com/AGolz/ft_printf-42/files/10759004/en.subject.pdf)**
 
 Need help: emaksimo@student.42yerevan.am
