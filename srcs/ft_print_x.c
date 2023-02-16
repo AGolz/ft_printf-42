@@ -6,46 +6,46 @@
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 18:47:02 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/15 20:03:10 by emaksimo         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:00:48 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-static char	*ft_sharp(t_form f)
+static char	*ft_sharp(t_format f)
 {
 	if (f.specifier == 'X')
 		return ("0X");
 	return ("0x");
 }
 
-static int	recurs_hexa(t_form f, size_t n, size_t iteration)
+static int	recurs_hexa(t_format f, size_t n, size_t iteration)
 {
 	int		cnt;
-	int		remainder;
-	char	character;
+	int		rest;
+	char	chtr;
 
 	cnt = 0;
 	if (n > 0 || (!iteration && (f.specifier != 'p' || !f.dot)))
 	{
-		remainder = n % 16;
+		rest = n % 16;
 		if (f.specifier != 'X')
-			character = HXLOW[remainder];
+			chtr = HXLOW[rest];
 		else
-			character = HXUP[remainder];
+			chtr = HXUP[rest];
 		n /= 16;
 		iteration = 1;
 		cnt += recurs_hexa(f, n, iteration);
-		cnt += ft_putchar_fd(character, 1);
+		cnt += ft_putchar_fd(chtr, 1);
 	}
 	return (cnt);
 }
 
-int	ft_print_x(t_form f, va_list ap)
+int	ft_print_x(t_format f, va_list ap)
 {
 	int				cnt;
-	unsigned int	n;
 	int				len;
+	unsigned int	n;
 
 	cnt = 0;
 	n = va_arg(ap, unsigned int);
@@ -70,11 +70,11 @@ int	ft_print_x(t_form f, va_list ap)
 	return (cnt);
 }
 
-int	ft_print_p(t_form f, va_list ap)
+int	ft_print_p(t_format f, va_list ap)
 {
 	int		cnt;
-	size_t	n;
 	int		len;
+	size_t	n;
 
 	cnt = 0;
 	n = va_arg(ap, size_t);

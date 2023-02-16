@@ -6,7 +6,7 @@
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 19:13:21 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/15 19:39:49 by emaksimo         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:07:20 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define HXLOW "0123456789abcdef"
 # define HXUP "0123456789ABCDEF"
 
-typedef struct s_form
+typedef struct s_format
 {
 	int		minus;
 	int		plus;
@@ -33,16 +33,16 @@ typedef struct s_form
 	int		space;
 	int		shrp;
 	char	specifier;
-}						t_form;
+}						t_format;
 
-int		ft_printf(const char *str, ...);
-int		ft_pars(char *str, va_list ap);
-int		ft_print_c(t_form f, va_list ap);
-int		ft_print_s(t_form f, va_list ap);
-int		ft_print_diu(t_form f, va_list ap);
-int		ft_print_x(t_form f, va_list ap);
-int		ft_print_p(t_form f, va_list ap);
-int		ft_print_format(t_form f, va_list ap);
-t_form	ft_new_format(void);
+int			ft_printf(const char *str, ...);
+int			ft_pars(char *str, va_list ap);
+int			ft_print_c(t_format f, va_list ap);
+int			ft_print_s(t_format f, va_list ap);
+int			ft_print_diu(t_format f, va_list ap);
+int			ft_print_x(t_format f, va_list ap);
+int			ft_print_p(t_format f, va_list ap);
+int			ft_print_form(t_format f, va_list ap);
+t_format	ft_new_form(void);
 
 #endif

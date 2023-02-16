@@ -6,7 +6,7 @@
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 19:17:02 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/15 20:21:51 by emaksimo         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:04:22 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_printf(const char *str, ...)
 {
 	int		cnt;
-	char	*first;
+	char	*start;
 	va_list	ap;
 
 	cnt = 0;
@@ -24,13 +24,13 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 		{
-			first = (char *)str;
+			start = (char *)str;
 			if (*(++str))
 				cnt += ft_pars((char *)str, ap);
 			while (*str && !ft_strchr(SPEC, *str))
 				str++;
 			if (!(*str))
-				str = first;
+				str = start;
 		}
 		else
 			cnt += ft_putchar_fd(*str, 1);
@@ -41,7 +41,7 @@ int	ft_printf(const char *str, ...)
 	return (cnt);
 }
 
-int	ft_print_format(t_form f, va_list ap)
+int	ft_print_form(t_format f, va_list ap)
 {
 	int	n;
 
@@ -59,9 +59,9 @@ int	ft_print_format(t_form f, va_list ap)
 	return (n);
 }
 
-t_form	ft_new_format(void)
+t_format	ft_new_form(void)
 {
-	t_form	newformat;
+	t_format	newformat;
 
 	newformat.minus = 0;
 	newformat.plus = 0;

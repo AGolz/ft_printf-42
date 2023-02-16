@@ -6,13 +6,13 @@
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 14:57:41 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/15 19:54:40 by emaksimo         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:06:47 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-static t_form	ft_pars_bonus(char *str, t_form f)
+static t_format	ft_pars_bonus(char *str, t_format f)
 {
 	while (*str != '.' && !ft_strchr (SPEC, *str))
 	{
@@ -27,7 +27,7 @@ static t_form	ft_pars_bonus(char *str, t_form f)
 	return (f);
 }
 
-static t_form	ft_pars_wdth(char *str, va_list	ap, t_form f)
+static t_format	ft_pars_wdth(char *str, va_list	ap, t_format f)
 {
 	int	spcf;
 
@@ -51,7 +51,7 @@ static t_form	ft_pars_wdth(char *str, va_list	ap, t_form f)
 	return (f);
 }
 
-static t_form	ft_pars_precis(char *str, va_list ap, t_form f)
+static t_format	ft_pars_precis(char *str, va_list ap, t_format f)
 {
 	int	spcf;
 
@@ -73,9 +73,9 @@ static t_form	ft_pars_precis(char *str, va_list ap, t_form f)
 
 int	ft_pars(char *str, va_list ap)
 {
-	t_form	new_format;
+	t_format	new_format;
 
-	new_format = ft_pars_wdth(str, ap, ft_new_format());
+	new_format = ft_pars_wdth(str, ap, ft_new_form());
 	new_format = ft_pars_bonus(str, new_format);
 	while (!ft_strchr(SPEC, *str) && *str != '.')
 		str++;
@@ -93,5 +93,5 @@ int	ft_pars(char *str, va_list ap)
 	}
 	new_format.specifier = *str;
 	new_format.neg_prec = new_format.precision < 0;
-	return (ft_print_format(new_format, ap));
+	return (ft_print_form(new_format, ap));
 }

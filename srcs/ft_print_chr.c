@@ -6,13 +6,13 @@
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 19:29:25 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/15 20:02:35 by emaksimo         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:58:03 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_print_s(t_form f, va_list ap)
+int	ft_print_s(t_format f, va_list ap)
 {
 	char	*string;
 	int		cnt;
@@ -33,7 +33,7 @@ int	ft_print_s(t_form f, va_list ap)
 	return (cnt);
 }
 
-int	ft_print_c(t_form f, va_list ap)
+int	ft_print_c(t_format f, va_list ap)
 {
 	char	c;
 	int		cnt;

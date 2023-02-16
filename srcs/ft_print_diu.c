@@ -6,20 +6,20 @@
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 18:47:25 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/15 20:02:55 by emaksimo         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:00:21 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-static char	plus(t_form f)
+static char	plus(t_format f)
 {
 	if (f.plus)
 		return ('+');
 	return ('-');
 }
 
-static int	ft_print_nbr(t_form f, char *nbr, int len, int neg)
+static int	ft_print_nbr(t_format f, char *nbr, int len, int neg)
 {
 	int	c;
 
@@ -44,7 +44,7 @@ static int	ft_print_nbr(t_form f, char *nbr, int len, int neg)
 	return (c);
 }
 
-int	ft_print_diu(t_form f, va_list ap)
+int	ft_print_diu(t_format f, va_list ap)
 {
 	char	*nbr;
 	int		n;

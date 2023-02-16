@@ -6,7 +6,7 @@
 #    By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 21:47:44 by emaksimo          #+#    #+#              #
-#    Updated: 2023/02/15 19:05:35 by emaksimo         ###   ########.fr        #
+#    Updated: 2023/02/16 17:47:34 by emaksimo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ RESET = \033[0m
 WHALE	=	"\n$(BLUE)       ::: \n     ___:____     |^\/^| \n   ,'        '.    \  / \n   |  O        \___/  | \n ~^~^~^~^~^~^~^~^~^~^~^~^~\n \n Compilation Successful!\n\n   by emaksimo for 42 \n	${NC}\n"
 NUKE	=	"\n$(PINK)    _.-^^---....,,--       \n _--                  --_  \n<                        >)\n|                         | \n \._                   _./  \n    '''--. . , ; .--'''       \n          | |   |             \n       .-=||  | |=-.   \n       '-=£€%&%€£=-'   \n          | ;  :|     \n _____.,-£%&€@%£&£~,._____\n ${NC}\n"
 
-.PHONY: all bonus clean fclean re
+.PHONY: all bonus test test_b clean fclean re 
 
 all: $(NAME)
 	@echo $?
@@ -77,6 +77,21 @@ bonus: $(LIBFT) $(OBJECTS_B) $(HEADER_B)
 $(OBJD_B)%.o: $(SRSD_B)%.c
 	mkdir -p $(OBJD_B)
 	$(CC) -c -o $@ $(CFLAGS) -I$(INCD) -I$(LIBFTD) $?
+
+test: all
+	@$(CC) -lftprintf -L. main_test.c
+	@./a.out leaks_test
+	@rm -f main.o a.out
+	@echo "\n$(NAME): $(BLUE) test complete $(RESET)"
+	@rm -rf a.out
+	
+ 
+test_b: bonus
+	@$(CC) -lftprintf -L. main_test_b.c
+	@./a.out leaks_test
+	@rm -f main.o a.out
+	@echo "\n$(NAME): $(BLUE) test bonus complete $(RESET)"
+	@rm -rf a.out
 	
 clean:  
 	@rm -rf $(OBJD) $(OBJD_B)

@@ -6,42 +6,42 @@
 /*   By: emaksimo <emaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 19:16:02 by emaksimo          #+#    #+#             */
-/*   Updated: 2023/02/15 20:12:10 by emaksimo         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:03:46 by emaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf_bonus.h"
 
-static char	*ft_sharp(t_form f)
+static char	*ft_sharp(t_format f)
 {
 	if (f.specifier == 'X')
 		return ("0X");
 	return ("0x");
 }
 
-static int	ft_recursive_hex(t_form f, size_t n, size_t iteration)
+static int	ft_recursive_hex(t_format f, size_t n, size_t iteration)
 {
 	int		count;
-	int		remainder;
-	char	character;
+	int		rest;
+	char	chtr;
 
 	count = 0;
 	if (n > 0 || (!iteration && (f.specifier != 'p' || !f.dot)))
 	{
-		remainder = n % 16;
+		rest = n % 16;
 		if (f.specifier != 'X')
-			character = HXLOW[remainder];
+			chtr = HXLOW[rest];
 		else
-			character = HXUP[remainder];
+			chtr = HXUP[rest];
 		n /= 16;
 		iteration = 1;
 		count += ft_recursive_hex(f, n, iteration);
-		count += ft_putchar_fd(character, 1);
+		count += ft_putchar_fd(chtr, 1);
 	}
 	return (count);
 }
 
-int	ft_print_x(t_form f, va_list ap)
+int	ft_print_x(t_format f, va_list ap)
 {
 	int				count;
 	int				len;
@@ -70,7 +70,7 @@ int	ft_print_x(t_form f, va_list ap)
 	return (count);
 }
 
-int	ft_print_p(t_form f, va_list ap)
+int	ft_print_p(t_format f, va_list ap)
 {
 	int		count;
 	int		len;
