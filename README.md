@@ -50,8 +50,8 @@ The `[type of conversion]` specifier determines how a number should be interpret
 <table>
   <tbody>
     <tr>
-      <td>Type of conversion</td>
-      <td>Purpose of the conversion</td>
+      <th>Type of conversion</th>
+      <th>Purpose of the conversion</th>
     </tr>
     <tr>
       <td>d,i</td>
