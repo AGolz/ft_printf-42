@@ -16,9 +16,9 @@ The prototype of ft_printf() is:
 int ft_printf(const char *, ...);
 ```
 Here are the project requirements for this part:
-• Don’t implement the buffer management of the original printf().
-• The function should handle the following conversions: cspdiuxX%
-• The function will be compared with the original printf().
+• Don’t implement the buffer management of the original `printf()`.
+• The function should handle the following conversions: `cspdiuxX%`
+• The function will be compared with the original `printf()`.
 
 ### Arguments:
 format – a pointer to a string with a description of the format.
@@ -55,11 +55,27 @@ The `[type of conversion]` specifier determines how a number should be interpret
     </tr>
     <tr>
       <td>d,i</td>
-      <td>output of a signed integer in decimal notation. By default, a sizeof( int ) number is output, with right alignment, indicating the sign only for negative numbers</td>
+      <td>output of a signed integer in decimal notation. By default, a sizeof(int) number is output, with right alignment, indicating the sign only for negative numbers</td>
     </tr>
     <tr>
       <td>u</td>
-      <td>output of an unsigned integer in decimal notation. By default, a sizeof( int ) number is output, with right alignment</td>
+      <td>output of an unsigned integer in decimal notation. By default, a sizeof(int) number is output, with right alignment</td>
+    </tr>
+	<tr>
+      <td>x,X</td>
+      <td>output of an unsigned integer in hexadecimal notation. Moreover, 'abcdef' symbols are used for the conversion of x, and 'ABCDEF' symbols are used for X. By default, a sizeof(int) number is output, with right alignment</td>
+    </tr>
+	<tr>
+      <td>с</td>
+      <td>output of the symbol corresponding to the number specified in the function argument. By default, the number is converted to the unsigned char type</td>
+    </tr>
+	<tr>
+      <td>s</td>
+      <td>output of the string referenced by the pointer in the argument of the printf function. The string is output until the character end of the string (/0) is encountered. By default, the string should be designated as char*</td>
+    </tr>
+	<tr>
+      <td>p</td>
+      <td>pointer output. The input result depends on the architecture and the compiler used. For example, on a 16-bit MS-DOS platform, the output will look like FFAB:1402, and on a 32-bit platform with flat addressing - 00FC0120.</td>
     </tr>
   </tbody>
 </table>
