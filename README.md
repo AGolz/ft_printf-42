@@ -149,7 +149,7 @@ The actions of the specifier `[precision]` depends on the type of the output num
 
 - For types d, i, u, x, X defines the minimum number of output digits. If the number of output digits in the number is less than specified in the `[precision]` specifier, then the output number will be padded with zeros on the left. For example, if you specify the precision of 4 when displaying the number 126, the number 0126 will be displayed on the screen
 
-The precision is specified as a dot character followed by a decimal number or a "*" character, followed by the name of an int variable containing the precision value before the argument to which it refers.
+The precision is specified as a `dot` character followed by a decimal number or a "*" character, followed by the name of an int variable containing the precision value before the argument to which it refers.
 
 The `[precision]` specifier can be omitted.
 
