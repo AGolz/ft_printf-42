@@ -173,4 +173,4 @@ Run `make test` to run tests for the main part or run `make test_b` for the bonu
 
 Need help: emaksimo@student.42yerevan.am
 
-Special thanks: @tripouille [tripouille](https://github.com/Tripouille) for the [printfTester](https://github.com/Tripouille/printfTester) (:
+Special thanks: [tripouille](https://github.com/Tripouille) for the [printfTester](https://github.com/Tripouille/printfTester) (:
