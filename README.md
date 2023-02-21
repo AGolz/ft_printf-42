@@ -71,7 +71,7 @@ The `[type of conversion]` specifier determines how a number should be interpret
     </tr>
 	<tr>
       <td> s </td>
-      <td>output of the string referenced by the pointer in the argument of the printf function. The string is output until the character end of the string (/0) is encountered. By default, the string should be designated as char*</td>
+      <td>output of the string referenced by the pointer in the argument of the ft_printf function. The string is output until the character end of the string (/0) is encountered. By default, the string should be designated as char*</td>
     </tr>
 	<tr>
       <td> p </td>
