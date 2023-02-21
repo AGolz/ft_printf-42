@@ -5,6 +5,8 @@
 
 **Actual Status :** Finished
 
+**Result :** 125%
+
 The goal of this project is quite simple — to recode printf() and understand how functions with a variable number of arguments work.
 
 ## The main part:
