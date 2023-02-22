@@ -7,6 +7,8 @@
 
 **Result :** 125%
 
+![emaksimo's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cldj7z84000110gl2ubikd2sh/project/2944396)
+
 The goal of this project is quite simple — to recode printf() and understand how functions with a variable number of arguments work.
 
 ## The main part:
