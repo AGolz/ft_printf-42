@@ -7,8 +7,6 @@
 
 **Result :** 125%
 
-![emaksimo's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cldj7z84000110gl2ubikd2sh/project/2944396)
-
 The goal of this project is quite simple — to recode printf() and understand how functions with a variable number of arguments work.
 
 ## The main part:
@@ -175,6 +173,6 @@ Run `make test` to run tests for the main part or run `make test_b` for the bonu
 
 **[Project instructions](https://github.com/AGolz/ft_printf-42/files/10759004/en.subject.pdf)**
 
-Need help: emaksimo@student.42yerevan.am
+Need help: elmaksim@student.42yerevan.am
 
 Special thanks: [tripouille](https://github.com/Tripouille) for the [printfTester](https://github.com/Tripouille/printfTester) (:
