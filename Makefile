@@ -44,8 +44,7 @@ RESET = \033[0m
 
 WHALE	=	"\n$(BLUE)       ::: \n     ___:____     |^\/^| \n   ,'        '.    \  / \n   |  O        \___/  | \n ~^~^~^~^~^~^~^~^~^~^~^~^~\n \n Compilation Successful!\n\n   by emaksimo for 42 \n	${NC}\n"
 NUKE	=	"\n$(PINK)    _.-^^---....,,--       \n _--                  --_  \n<                        >)\n|                         | \n \._                   _./  \n    '''--. . , ; .--'''       \n          | |   |             \n       .-=||  | |=-.   \n       '-=£€%&%€£=-'   \n          | ;  :|     \n _____.,-£%&€@%£&£~,._____\n ${NC}\n"
-
-.PHONY: all bonus test test_b clean fclean re 
+ 
 
 all: $(NAME)
 	@echo $?
@@ -110,3 +109,5 @@ fclean: clean
 re:
 	@$(MAKE) fclean
 	@$(MAKE) all
+
+.PHONY: all bonus test test_b clean fclean re
